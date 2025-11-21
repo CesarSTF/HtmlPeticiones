@@ -140,6 +140,7 @@ Tener dos terminales abiertas, una para ejecutar el backend y otra para ejecutar
    cd ListasServidor
    source virtual/bin/activate  # En Linux/Mac
    # En Windows: virtual\Scripts\activate
+   python index.py
    ```
    Acceder en `http://localhost:5000`
 
