@@ -1,0 +1,38 @@
+{% extends 'template.html' %}
+{% block title %}{{ 'Editar Familia' if familia else 'Registrar Familia' }}{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h4 class="mb-0">{{ 'Editar Familia' if familia else 'Registrar Familia' }}</h4>
+        </div>
+        <div class="card-body">
+            <form action="{{ url_for('router.update_familia', id=familia.idFamilias) if familia else url_for('router.send_familia') }}" method="post" class="familia-form">
+                <div class="mb-3">
+                    <label for="nroIntegrantes" class="form-label">Número de Integrantes:</label>
+                    <input type="number" class="form-control" name="nroIntegrantes" id="nroIntegrantes" value="{{ familia.nroIntegrantes if familia else '' }}" required>
+                </div>
+                <div class="mb-3">
+                    <label for="nombreFamilia" class="form-label">Nombre de la familia:</label>
+                    <input type="text" class="form-control" name="nombreFamilia" id="nombreFamilia" value="{{ familia.nombreFamilia if familia else '' }}" required>
+                </div>
+                <div class="mb-3">
+                    <label for="generadorId" class="form-label">Generador Asociado:</label>
+                    <select name="generadorId" id="generadorId" class="form-select">
+                        <option value="">Ninguno</option>
+                        {% for generador in generadores %}
+                        <option value="{{ generador.idGenerador }}" {% if familia and familia.generador and familia.generador.idGenerador == generador.idGenerador %}selected{% endif %}>
+                            {{ generador.modelo }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-primary">{{ 'Actualizar Familia' if familia else 'Registrar Familia' }}</button>
+                    <a href="{{ url_for('router.home') }}" class="btn btn-secondary">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
