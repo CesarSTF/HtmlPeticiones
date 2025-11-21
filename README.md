@@ -1,5 +1,9 @@
 # HtmlPeticiones
-# HtmlPeticiones
+Verificar la rama
+`git branch`
+Asegurarse de estar en el develop, una vez este en develop:
+'git checkout feature/http-client'
+
 # Práctica: Simulación de Peticiones HTTP
 
 ## Objetivos
