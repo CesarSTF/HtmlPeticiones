@@ -1,0 +1,33 @@
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Nombre Familia</th>
+                <th>Número de Integrantes</th>
+                <th>Generador Adquirido</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in familias %}
+            <tr>
+                <td>{{ item.nombreFamilia }}</td>
+                <td>{{ item.nroIntegrantes }}</td>
+                <td>
+                    {% if item.generador %}
+                        {{ item.generador.idGenerador }}
+                    {% else %}
+                        No Adquirido
+                      {% endif %}
+                </td>
+                <td>
+                    <form action="{{ url_for('router.delete_familia', id=item.idFamilias) }}" method="post" class="d-inline">
+                        <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                    </form>
+                    <a href="{{ url_for('router.edit_familia', id=item.idFamilias) }}" class="btn btn-warning btn-sm">Modificar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>

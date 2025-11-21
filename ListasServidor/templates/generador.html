@@ -1,0 +1,30 @@
+{% extends 'template.html' %}
+{% block title %}Generador {{ generador.idGenerador }}{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h4 class="mb-0">Detalles del Generador {{ generador.idGenerador }}</h4>
+        </div>
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-3">Modelo:</dt>
+                <dd class="col-sm-9">{{ generador.modelo }}</dd>
+
+                <dt class="col-sm-3">Costo:</dt>
+                <dd class="col-sm-9">{{ generador.costo }}</dd>
+
+                <dt class="col-sm-3">Consumo de Combustible:</dt>
+                <dd class="col-sm-9">{{ generador.consumoComustible }}</dd>
+
+                <dt class="col-sm-3">Energía Generada:</dt>
+                <dd class="col-sm-9">{{ generador.enegeriaGenerada }}</dd>
+
+                <dt class="col-sm-3">Uso:</dt>
+                <dd class="col-sm-9">{{ generador.uso }}</dd>
+            </dl>
+            <a href="{{ url_for('router.home') }}" class="btn btn-secondary">Regresar</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
