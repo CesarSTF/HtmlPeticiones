@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Familia {{ familia.idFamilias }}</title>
+</head>
+<body>
+  <div>
+    <h2>Familia ID: {{ familia.idFamilias }}</h2>
+    <p><strong>Nombre de la familia:</strong> {{ familia.nombreFamilia }}</p>
+    <p><strong>Número de Integrantes:</strong> {{ familia.nroIntegrantes }}</p>
+    {% if familia.generador %}
+      <p><strong>Generador Asociado:</strong> Modelo {{ familia.generador.modelo }} - ID: {{ familia.generador.idGenerador }}</p>
+      <p><strong>Costo del Generador:</strong> {{ familia.generador.costo }}</p>
+      <p><strong>Consumo de Combustible:</strong> {{ familia.generador.consumoComustible }}</p>
+      <p><strong>Energía Generada:</strong> {{ familia.generador.enegeriaGenerada }}</p>
+      <p><strong>Uso:</strong> {{ familia.generador.uso }}</p>
+    {% else %}
+      <p><strong>Generador Asociado:</strong> No Adquirido</p>
+    {% endif %}
+  </div>
+</body>
+</html>
